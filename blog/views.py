@@ -9,10 +9,10 @@ def posts_list(request):
 
 def post_detail(request, slug):
     post = Post.objects.get(slug__iexact=slug)
-    return render(request, 'post_detail.html', context={'post': post})
+    return render(request, 'blog/post_detail.html', context={'post': post})
 
 def tags_list(request):
-    tags = tags.objects.all()
+    tags = Tag.objects.all()
     return render(request, 'blog/tags_list.html', context={'tags': tags})
 
 def tag_detail(request, slug):
