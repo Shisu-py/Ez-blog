@@ -14,11 +14,11 @@ class TagForm(forms.Form):
         new_slug = self.cleaned_data['slug'].lower()
         
         if new_slug == 'create':
-            raise ValidationError("Slug may not be 'created")
+            raise ValidationError('Slug may not be "created"')
         return new_slug
     
     
     def save(self):
-        new_tag = Tag.objects.create(title = self.clean_data['title'], slug = self.clean_data['slug'])
+        new_tag = Tag.objects.create(title = self.cleaned_data['title'], slug = self.cleaned_data['slug'])
         return new_tag
                     
