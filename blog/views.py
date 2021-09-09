@@ -6,7 +6,7 @@ from django.views.generic import View
 from .models import Post, Tag
 from .utils import objectDetailMixin
 
-from .forms import TagForm
+from .forms import TagForm, PostForm
 
 
 def posts_list(request):
@@ -17,6 +17,12 @@ def posts_list(request):
 class PostDetail(objectDetailMixin, View):
     model = Post
     template = 'blog/post_detail.html'
+    
+    
+class PostCreate(View):
+    def get(self,request):
+        form = PostForm()
+        return render(request, 'blog/post_create_form', context= {'forms': form})
 
 def tags_list(request):
     tags = Tag.objects.all()
