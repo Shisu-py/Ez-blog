@@ -20,9 +20,17 @@ class PostDetail(objectDetailMixin, View):
     
     
 class PostCreate(View):
-    def get(self,request):
+    def get(self, request):
         form = PostForm()
-        return render(request, 'blog/post_create_form', context= {'forms': form})
+        return render(request, 'blog/post_create_form.html', context= {'form': form})
+
+    def post(self, request):
+        bound_form = PostForm(request.POST)
+        if bound_form.is_valid():
+            new_post = bound_form.save()
+            return redirect(new_post)
+        return render(request, 'blog/post_create_form.html', context= {'form': bound_form})
+
 
 def tags_list(request):
     tags = Tag.objects.all()
