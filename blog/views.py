@@ -14,7 +14,7 @@ def posts_list(request):
     return render(request, 'blog/index.html', context = {'posts': posts})
 
 
-class PostDetail(objectDetailMixin, View):
+class PostDetail(ObjectDetailMixin, View):
     model = Post
     template = 'blog/post_detail.html'
     
@@ -29,7 +29,7 @@ class PostUpdate(ObjectUpdateMixin, View):
     template = 'blog/post_update_form.html'
 
 
-class TagDetail(objectDetailMixin, View):
+class TagDetail(ObjectDetailMixin, View):
     model = Tag
     template = 'blog/tag_detail.html'
     

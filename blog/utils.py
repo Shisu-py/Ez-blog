@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from .models import *
 
 
-class objectDetailMixin:
+class ObjectDetailMixin:
     model = None
     template = None
     
