@@ -7,9 +7,9 @@
 
 
 {% block content %}
-    <h1 style ="margin-bottom: 5px;">Posts with "{{tag.title }}" tag:</h1>
+    <h1 style ="margin-bottom: 5px;">Posts with '{{ tag.title }}' tag:</h1>
 
     {% for post in tag.posts.all %}
-        {%include 'blog/includes/post_card_template.html'%}
-    {%endfor%}
+        {% include 'blog/includes/post_card_template.html' %}
+    {% endfor %}
 {% endblock %}
